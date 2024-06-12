@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "Birthday": {
+      "type": "date",
+      "required": true
+    },
+    "IdentityCode": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "MSV": {
+      "type": "string",
+      "unique": false
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "Address": {
+      "type": "string",
+      "required": true
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "mappedBy": "students"
+    },
+    "Purpose": {
+      "type": "string",
+      "required": true
+    },
+    "classification": {
+      "type": "enumeration",
+      "enum": [
+        "Sinh viên",
+        "Người đi làm",
+        "Khác"
+      ],
+      "required": true
+    },
+    "expertise": {
+      "type": "enumeration",
+      "enum": [
+        "Novice",
+        "Intermediate",
+        "Advance"
+      ],
+      "required": true,
+      "default": "Novice"
+    }
+  }
+}
